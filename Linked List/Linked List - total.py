@@ -42,5 +42,5 @@ SeventhNode = nodes('10', SixthNode)
 EigthNode = nodes('10', SeventhNode)
 NineNode = nodes('10', EigthNode)
 
-#Calls the traverse function to scroll through the entire list
+#Calls the total function to scroll through the entire list and summing up every node's value
 Total(FirstNode)
