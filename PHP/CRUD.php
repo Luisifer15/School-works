@@ -121,7 +121,7 @@
                         <td><?php if ($row['STOCK'] == 1) echo "Yes"; else echo "No"; ?></td>
                         <td><?php echo $row['DATE_RECORDED']; ?></td>
                         <td><?php echo $row['DATE_MODIFIED']; ?></td>
-                        <td><a class="btn btn-info" href="Insert.php?id=<?php echo $row['ID']; ?>&function=1">Edit</a>&nbsp;<a class="btn btn-danger" href="Insert.php?id=<?php echo $row['ID']; ?>&function=0">Delete</a></td>
+                        <td><a class="btn btn-info" href="CRUD.php?id=<?php echo $row['ID']; ?>&function=1">Edit</a>&nbsp;<a class="btn btn-danger" href="CRUD.php?id=<?php echo $row['ID']; ?>&function=0">Delete</a></td>
                         </tr>                       
 
             <?php       
