@@ -1,2 +1,2 @@
-# School-works-shit
+# School-works-things
 wtf u doin here
