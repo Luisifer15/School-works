@@ -83,6 +83,33 @@
     $disp_sql = "SELECT * FROM studentrecord_tbl WHERE final_grade>='87'";
   }
 
+  //Print to CSV file
+  if (isset($_POST['export'])) {
+    $filename = 'MySqlTable.csv';
+
+    header('Content-Type: text/csv');
+    header('Content-Disposition: attachment; filename="' . $filename . '"');
+
+    $exp_output = fopen('php://output', 'w');
+    $exp_sql = "SELECT * FROM studentrecord_tbl";
+
+    // Fetch data from your table
+    $exp_result = $conn->query($exp_sql);
+
+    // Output the column headings
+    $exp_row = $exp_result->fetch_assoc();
+    fputcsv($exp_output, array_keys($exp_row));
+
+    // Output the data
+    while ($exp_row) {
+        fputcsv($exp_output, $exp_row);
+        $exp_row = $exp_result->fetch_assoc();
+    }
+
+    fclose($exp_output);
+}
+
+
   $disp_result = $conn->query($disp_sql);
 
 ?>
@@ -169,7 +196,12 @@
         </tbody>
       </table>
       </fieldset>
-    </div><br><br><br>
+      <br>
+      <form method="post" action="export.php">
+        <button class="btn btn-danger" type="submit" name="export">Export</button>&nbsp;
+      </form>
+    </div><br>
+    <br><br>
 
 
 
